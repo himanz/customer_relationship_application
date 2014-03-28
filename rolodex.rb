@@ -12,4 +12,12 @@ class Rolodex
 	def show_contacts
 		@contacts.each {|contact| puts contact}
 	end
+
+	def edit_contact(id, new_name)
+		@contacts.each do |contact|
+			if contact.id == id
+				contact.name = new_name
+			end
+		end
+	end
 end

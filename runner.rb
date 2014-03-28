@@ -9,6 +9,7 @@ class Runner
 		puts "World of CRM"
 		puts "1. Add a contact"
 		puts "2. See all contacts"
+		puts "3. Edit a contact"
 		puts "0. To Exit"
 	end
   
@@ -28,6 +29,14 @@ class Runner
   	puts "---------------------"
   end
 
+  def edit_contact
+  	puts "Enter contact's ID to edit"
+  	id = gets.chomp.to_i
+  	puts "Enter new contact name"
+  	new_name = gets.chomp
+  	@rolodex.edit_contact(id, new_name)
+  end
+
 	def run
 		done = false
 		while !done
@@ -39,6 +48,8 @@ class Runner
 				add_contact
 			elsif input == 2
 	      show_contacts
+	    elsif input == 3
+	    	edit_contact
 			else
 				wrong_input
 			end
