@@ -26,7 +26,9 @@ class Runner
   	address = gets.chomp
   	puts "Enter Customer's Phone Number"
   	phone = gets.chomp
-  	@rolodex.create_contact(name, address, phone)
+  	puts "Enter Customer's Email Address"
+  	email = gets.chomp
+  	@rolodex.create_contact(name, address, phone, emailx)
   end
 
   def show_contacts

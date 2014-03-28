@@ -1,7 +1,7 @@
 class Contact
   @@counter = 0
 
-	attr_accessor :name, :address, :phone, :id, :note
+	attr_accessor :name, :address, :phone, :email, :id, :note
   
   def initialize
   	@id = Contact.get_id
@@ -12,7 +12,8 @@ class Contact
 		puts "Name: #{@name}"
 		puts "Address: #{@address}"
 		puts "Phone: #{@phone}"
-		puts "Notes #{@notes}"
+		puts "Email: #{@email}"
+		puts "Notes: #{@note}"
 	end
 
 	def self.get_id
