@@ -24,4 +24,12 @@ class Rolodex
 	def delete_contact(id)
     @contacts.delete_if {|x| x.id == id}
 	end
+
+	def create_note(id, note)
+		@contacts.each do |contact|
+			if contact.id == id
+				contact.note = note
+			end
+		end
+	end
 end
