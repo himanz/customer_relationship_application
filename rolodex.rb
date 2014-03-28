@@ -3,10 +3,11 @@ class Rolodex
 		@contacts = []
 	end
 
-	def create_contact(name, address)
+	def create_contact(name, address, phone)
 		contact = Contact.new
 		contact.name = name
 		contact.address = address
+		contact.phone = phone
 		@contacts << contact
 	end
 
