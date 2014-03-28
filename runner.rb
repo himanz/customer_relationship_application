@@ -1,4 +1,7 @@
 class Runner
+	def initialize
+		@rolodex = Rolodex.new
+	end
 	def main_menu
 		puts "World of CRM"
 		puts "1. Add a contact"
@@ -6,6 +9,12 @@ class Runner
   
   def wrong_input
   	puts "Wrong input, enter again"
+  end
+
+  def add_contact
+  	puts "Enter Customer's Name"
+  	name = gets.chomp
+  	@rolodex.create_contact(name)
   end
 
 	def run
