@@ -21,7 +21,7 @@ class Runner
 
   def add_contact
   	puts "Enter Customer's Name"
-  	name = gets.chomp
+  	name = gets.chomp 	
   	puts "Enter Customer's Address"
   	address = gets.chomp
   	puts "Enter Customer's Phone Number"

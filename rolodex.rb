@@ -10,10 +10,13 @@ class Rolodex
 		contact.phone = phone
 		contact.email = email
 		@contacts << contact
+		print @contacts
 	end
 
 	def show_contacts
-		@contacts.each {|contact| puts contact}
+		@contacts.each do |contact| 
+			puts contact.to_s
+		end
 	end
 
 	def edit_contact(id, new_name)
