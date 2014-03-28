@@ -8,7 +8,11 @@ class Contact
   end
 
 	def to_s
-		"ID: #{@id}\nName: #{@name}\nAddress: #{@address}\nPhone: #{@phone}\nNotes: #{@nNotes}\n"
+		puts "ID: #{@id}"
+		puts "Name: #{@name}"
+		puts "Address: #{@address}"
+		puts "Phone: #{@phone}"
+		puts "Notes #{@notes}"
 	end
 
 	def self.get_id
