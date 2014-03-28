@@ -1,3 +1,6 @@
+require './rolodex'
+require './contact'
+
 class Runner
 	def initialize
 		@rolodex = Rolodex.new
