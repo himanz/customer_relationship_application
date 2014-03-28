@@ -8,4 +8,8 @@ class Rolodex
 		contact.name = name
 		@contacts << contact
 	end
+
+	def show_contacts
+		@contacts.each {|contact| puts contact}
+	end
 end
