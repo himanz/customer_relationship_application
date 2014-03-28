@@ -10,6 +10,7 @@ class Runner
 		puts "1. Add a contact"
 		puts "2. See all contacts"
 		puts "3. Edit a contact"
+		puts "4. Delete a contact"
 		puts "0. To Exit"
 	end
   
@@ -37,6 +38,12 @@ class Runner
   	@rolodex.edit_contact(id, new_name)
   end
 
+  def delete_contact
+  	puts "Enter contact's ID to delete"
+  	id = gets.chomp.to_i
+  	@rolodex.delete_contact(id)
+  end
+
 	def run
 		done = false
 		while !done
@@ -50,6 +57,8 @@ class Runner
 	      show_contacts
 	    elsif input == 3
 	    	edit_contact
+	    elsif input == 4
+	    	delete_contact
 			else
 				wrong_input
 			end
