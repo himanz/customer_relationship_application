@@ -40,9 +40,30 @@ class Runner
   def edit_contact
   	puts "Enter contact's ID to edit"
   	id = gets.chomp.to_i
-  	puts "Enter new contact name"
-  	new_name = gets.chomp
-  	@rolodex.edit_contact(id, new_name)
+  	puts "What field do you want to edit?"
+  	puts "1. Name"
+  	puts "2. Address"
+  	puts "3. Phone Number"
+  	puts "4. Email Address"
+  	input = gets.chomp.to_i
+  	if input == 1
+  	  puts "Enter new contact name"
+  	  new_name = gets.chomp
+  	  @rolodex.edit_name(id, new_name)
+  	elsif input == 2
+  		puts "Enter a new address"
+      new_address = gets.chomp
+  		@rolodex.edit_address(id, new_address)
+    elsif input == 3
+      puts "Enter a new phone number"
+      new_phone = gets.chomp
+      @rolodex.edit_phone(id, new_phone)
+    elsif input == 4
+      puts "Enter a new email address"
+      new_email = gets.chomp
+      @rolodex.edit_email(id, new_email)
+    end 
+  	 
   end
 
   def delete_contact

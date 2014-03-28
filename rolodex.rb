@@ -19,10 +19,34 @@ class Rolodex
 		end
 	end
 
-	def edit_contact(id, new_name)
+	def edit_name(id, new_name)
 		@contacts.each do |contact|
 			if contact.id == id
 				contact.name = new_name
+			end
+		end
+	end
+
+	def edit_address(id, new_address)
+		@contacts.each do |contact|
+			if contact.id == id
+				contact.address = new_address
+			end
+		end
+	end
+
+	def edit_phone(id, new_phone)
+		@contacts.each do |contact|
+			if contact.id = id
+				contact.phone = new_phone
+			end
+		end
+	end
+
+	def edit_email(id, new_email)
+		@contacts.each do |contact|
+			if contact.id = id
+				contact.email = new_email
 			end
 		end
 	end
