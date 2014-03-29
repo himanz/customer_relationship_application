@@ -1,3 +1,8 @@
+#alternate method to edit attributes
+# poop = %w( first_name last_name email notes)
+# menu item n-1
+# contact.send( poop[n-1] )
+
 class Rolodex
 	def initialize
 		@contacts = []
