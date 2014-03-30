@@ -16,6 +16,10 @@ class Rolodex
   	@contacts.each {|contact| puts contact.to_s}
   end
 
+  def display_id_name
+  	@contacts.each {|contact| puts "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}"}
+  end
+
   def delete_contact(user_input)
     @contacts.delete_if {|contact| contact.id == user_input}
   end

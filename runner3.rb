@@ -54,10 +54,21 @@ class Runner
   	@rolodex.display_all_contacts
   end
 
+  def display_id_name
+  	@rolodex.display_id_name
+  end
+
   def delete_contact
+  	puts "\e[H\e[2J"
+  	display_id_name
+  	puts "------------------------"
   	puts "Enter a user's ID to delete"
   	id = gets.chomp.to_i
   	@rolodex.delete_contact(id)
+  	puts "User is deleted"
+  	puts "\n"
+  	puts "\n"
+  	puts "------------------------"
   end
 end
 
