@@ -132,7 +132,18 @@ class Rolodex
   	@deleted.each do |contact|
   		if contact.id == id
   			@contacts << contact
+        @deleted.delete_if {|del_contact| del_contact.id == id }
   		end
   	end
+  end
+
+  def sort_contacts(input)
+    sorted_contact = []
+    @contacts.each do |contact|
+      if contact == 1
+        print contact
+      end
+    end
+    #puts sorted_contact
   end
 end

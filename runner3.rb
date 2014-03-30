@@ -15,6 +15,7 @@ class Runner
 		puts "(5) Display an attribute"
 		puts "(6) Find"
 		puts "(7) Restore deleted contact"
+		puts "(8) Sort Contacts"
 		puts "(0) Exit"
 		puts "Enter a number please"
 	end
@@ -40,6 +41,7 @@ class Runner
 		display_attribute if user_selected == 5
 		find if user_selected == 6
 		restore_deleted if user_selected == 7
+		sort_contacts if user_selected == 8
 	end
   
   # display all contacts
@@ -91,7 +93,7 @@ class Runner
 	  	puts "New contact info"
 	  	puts "-----------------"
 	  	@rolodex.display_target(id)
-    endu 
+    end 
   end
 
   # delete an contact
@@ -164,6 +166,21 @@ class Runner
   	@rolodex.restore_deleted(id)
   	puts "User #{id} is restored"
   	puts "------------------------"
+  end
+
+  # Sort contacts by attribute in ascending or descending order
+  def sort_contacts
+  	puts "\e[H\e[2J"
+  	puts "Which attribute do you want to sort your contacts by"
+  	puts "(1) ID"
+		puts "(2) First Name"
+		puts "(3) Last Name"
+		puts "(4) Email"
+		puts "(5) Note"
+		puts "(9) Go back to Main Menu"
+		input = gets.chomp.to_i
+    puts "\e[H\e[2J"
+    @rolodex.sort_contacts(input)
   end
 end
 
