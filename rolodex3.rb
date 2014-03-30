@@ -137,13 +137,20 @@ class Rolodex
   	end
   end
 
+  # sort contacts
   def sort_contacts(input)
-    sorted_contact = []
-    @contacts.each do |contact|
-      if contact == 1
-        print contact
-      end
+    if input == 1
+      @contacts = @contacts.sort_by {|contact| contact.id}
+    elsif input == 2
+      @contacts = @contacts.sort_by {|contact| contact.first_name}
+    elsif input == 3
+      @contacts = @contacts.sort_by {|contact| contact.last_name}
+    elsif input == 4
+      @contacts = @contacts.sort_by {|contact| contact.email}
+    elsif input == 5
+      @contacts = @contacts.sort_by {|contact| contact.note}
     end
-    #puts sorted_contact
+    puts "----------"
+    display_all_contacts
   end
 end

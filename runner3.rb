@@ -168,7 +168,7 @@ class Runner
   	puts "------------------------"
   end
 
-  # Sort contacts by attribute in ascending or descending order
+  # Sort contacts by attribute in descending order
   def sort_contacts
   	puts "\e[H\e[2J"
   	puts "Which attribute do you want to sort your contacts by"
