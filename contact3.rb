@@ -13,10 +13,6 @@ class Contact
   end
 
   def to_s
-  	"ID: #{@id}\nFirst Name: #{@first_name}\nLast Name: #{@last_name}\nAddress: #{@address}\nNotes: #{@note}"
+  	"ID: #{@id}\nFirst Name: #{@first_name}\nLast Name: #{@last_name}\nEmail: #{@email}\nNotes: #{@note}"
   end
-
-  #def contacts
-  #	@contacts
-  #end
 end

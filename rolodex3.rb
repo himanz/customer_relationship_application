@@ -3,6 +3,7 @@ class Rolodex
 	def initialize
 		@contacts = []
 	end
+
 	def create_contact(first_name, last_name, email, note)
 		contact = Contact.new
 		contact.first_name = first_name
@@ -16,6 +17,14 @@ class Rolodex
   	@contacts.each do |contact| 
   		puts contact.to_s
   		puts "-------------"
+  	end
+  end
+
+  def display_target(id)
+  	@contacts.each do |contact|
+  		if contact.id == id
+  			puts "First Name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.note}"
+  		end
   	end
   end
 
@@ -43,4 +52,19 @@ class Rolodex
   	end
   end
 
+  def modify_contact(id, input, new_info)
+  	@contacts.each do |contact|
+  		if contact.id == id
+  			if input == 1
+  				contact.first_name = new_info
+  			elsif input == 2
+  				contact.last_name = new_info
+  			elsif input == 3
+  				contact.email = new_info
+  			elsif input == 4
+  				contact.note = new_info
+  			end
+  		end
+  	end
+  end
 end

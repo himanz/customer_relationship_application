@@ -5,7 +5,6 @@ class Runner
 	def initialize(name)
 		puts "Welcome to CRM Bazaar #{name}!"
 		@rolodex = Rolodex.new
-		
 	end
 
 	def main_menu
@@ -30,14 +29,19 @@ class Runner
 	def user_option(user_selected)
 		@done = true if user_selected == 0
 		add_new_contact if user_selected == 1
+		modify_contact if user_selected == 2
 		delete_contact if user_selected == 3
 		display_all_contacts if user_selected == 4
 		display_attribute if user_selected == 5
 	end
+  
+  def display_all_contacts
+  	@rolodex.display_all_contacts
+  end
 
-	def call_option(user_selected)
-		#user_option(user_selected)
-	end
+  def display_id_name
+  	@rolodex.display_id_name
+  end
 
 	def add_new_contact
 		puts "\e[H\e[2J"
@@ -54,12 +58,27 @@ class Runner
 		@rolodex.create_contact(first_name, last_name, email, note)
 	end
 
-	def display_all_contacts
-  	@rolodex.display_all_contacts
-  end
-
-  def display_id_name
-  	@rolodex.display_id_name
+  def modify_contact
+  	puts "\e[H\e[2J"
+  	puts "Enter ID of person you want to modify"
+  	display_id_name
+  	id = gets.chomp.to_i
+  	puts "\e[H\e[2J"
+  	puts "Which attribute do you want to edit"
+		puts "(1) First Name"
+		puts "(2) Last Name"
+		puts "(3) Email"
+		puts "(4) Note"
+		puts "(0) Exit"		
+		input = gets.chomp.to_i
+		puts "Enter the new information"
+		new_info = gets.chomp
+		puts "\e[H\e[2J"
+  	@rolodex.modify_contact(id, input, new_info)
+  	puts "New contact info"
+  	puts "-----------------"
+  	@rolodex.display_target(id)
+  	puts "-----------------"
   end
 
   def delete_contact
@@ -75,10 +94,12 @@ class Runner
   	puts "------------------------"
   end
 
+  
+
   def display_attribute
     puts "\e[H\e[2J"
     puts "Which attribute do you want to display"
-    puts "(1) ID"
+  	puts "(1) ID"
 		puts "(2) First Name"
 		puts "(3) Last Name"
 		puts "(4) Email"
@@ -87,6 +108,7 @@ class Runner
 		input = gets.chomp.to_i
 		puts "\e[H\e[2J"
     @rolodex.display_attribute(input)
+    puts "------------------"
   end
 end
 
