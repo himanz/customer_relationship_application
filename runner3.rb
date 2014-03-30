@@ -14,6 +14,7 @@ class Runner
 		puts "(4) Display all the contacts"
 		puts "(5) Display an attribute"
 		puts "(6) Find"
+		puts "(7) Restore deleted contact"
 		puts "(0) Exit"
 		puts "Enter a number please"
 	end
@@ -24,6 +25,7 @@ class Runner
 		while !@done
 			main_menu
 			user_selected = gets.chomp.to_i
+			puts "\e[H\e[2J"
 			user_option(user_selected)
 		end
 	end
@@ -37,6 +39,7 @@ class Runner
 		display_all_contacts if user_selected == 4
 		display_attribute if user_selected == 5
 		find if user_selected == 6
+		restore_deleted if user_selected == 7
 	end
   
   # display all contacts
@@ -88,22 +91,17 @@ class Runner
 	  	puts "New contact info"
 	  	puts "-----------------"
 	  	@rolodex.display_target(id)
-    end
-  	puts "-----------------"
-
+    endu 
   end
 
   # delete an contact
   def delete_contact
   	puts "\e[H\e[2J"
   	display_id_name
-  	puts "------------------------"
   	puts "Enter a user's ID to delete"
   	id = gets.chomp.to_i
   	@rolodex.delete_contact(id)
   	puts "User #{id} is deleted"
-  	puts "\n"
-  	puts "\n"
   	puts "------------------------"
   end
 
@@ -153,6 +151,19 @@ class Runner
     	return
     end
 		@rolodex.find(input, search)
+  end
+
+  # Restore deleted contact
+  def restore_deleted
+    puts "\e[H\e[2J"
+  	@rolodex.display_deleted
+  	puts "------------------------"
+  	puts "Enter a user's ID to restore"
+  	id = gets.chomp.to_i
+  	puts "\e[H\e[2J"
+  	@rolodex.restore_deleted(id)
+  	puts "User #{id} is restored"
+  	puts "------------------------"
   end
 end
 

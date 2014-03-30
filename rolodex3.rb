@@ -3,6 +3,7 @@ class Rolodex
 	def initialize
 		# store contacts
 		@contacts = []
+		@deleted = []
 	end
 
   # create a contact
@@ -36,14 +37,14 @@ class Rolodex
   	end
   end
 
-  # display id and name of a contact
+  # display info of a contact
   def display_id_name
-  	@contacts.each {|contact| puts "ID: #{contact.id} First Name: #{contact.first_name} Last Name: #{contact.last_name}"}
+  	@contacts.each {|contact| puts "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\n------------\n"}
   end
 
   # delete a contact
   def delete_contact(user_input)
-    @contacts.delete_if {|contact| contact.id == user_input}
+    @contacts.delete_if {|contact| @deleted << contact if contact.id == user_input}
   end
 
   # display a specific information about a contact
@@ -115,6 +116,22 @@ class Rolodex
   				  display_target(id)
   				end
   			end
+  		end
+  	end
+  end
+
+  # display deleted contacts
+  def display_deleted
+  	@deleted.each do |contact|
+      puts "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.note}"
+  	end
+  end
+
+  # restore deleted contact
+  def restore_deleted(id)
+  	@deleted.each do |contact|
+  		if contact.id == id
+  			@contacts << contact
   		end
   	end
   end
