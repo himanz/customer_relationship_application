@@ -11,6 +11,9 @@ class Rolodex
 		contact.email = email
 		contact.note = note
 		@contacts << contact
+		puts "New Contact Added"
+		puts "First Name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.note}"
+		puts "---------------"
 	end
 
   def display_all_contacts

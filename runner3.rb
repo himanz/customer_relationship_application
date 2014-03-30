@@ -55,6 +55,7 @@ class Runner
 		email = gets.chomp
 		print "Enter a note: "
 		note = gets.chomp
+		puts "\e[H\e[2J"
 		@rolodex.create_contact(first_name, last_name, email, note)
 	end
 
@@ -88,13 +89,11 @@ class Runner
   	puts "Enter a user's ID to delete"
   	id = gets.chomp.to_i
   	@rolodex.delete_contact(id)
-  	puts "User is deleted"
+  	puts "User #{id} is deleted"
   	puts "\n"
   	puts "\n"
   	puts "------------------------"
   end
-
-  
 
   def display_attribute
     puts "\e[H\e[2J"
@@ -114,5 +113,6 @@ end
 
 puts "What is your name?"
 user_name = gets.chomp
+puts "\e[H\e[2J"
 jon = Runner.new(user_name)
 jon.run
