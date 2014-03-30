@@ -33,15 +33,28 @@ class Runner
 
   # determine which option user wants
 	def user_option(user_selected)
-		@done = true if user_selected == 0
-		add_new_contact if user_selected == 1
-		modify_contact if user_selected == 2
-		delete_contact if user_selected == 3
-		display_all_contacts if user_selected == 4
-		display_attribute if user_selected == 5
-		find if user_selected == 6
-		restore_deleted if user_selected == 7
-		sort_contacts if user_selected == 8
+		case user_selected
+		when 0
+			@done = true
+		when 1
+			add_new_contact
+		when 2
+			modify_contact
+		when 3
+			delete_contact
+		when 4
+			display_all_contacts
+		when 5
+			display_attribute
+		when 6
+			find
+		when 7
+			restore_deleted
+		when 8
+			sort_contacts
+		else
+			puts "Please enter a correct input"
+		end
 	end
   
   # display all contacts
@@ -164,7 +177,6 @@ class Runner
   	id = gets.chomp.to_i
   	puts "\e[H\e[2J"
   	@rolodex.restore_deleted(id)
-  	puts "User #{id} is restored"
   	puts "------------------------"
   end
 

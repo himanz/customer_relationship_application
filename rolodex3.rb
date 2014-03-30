@@ -89,8 +89,8 @@ class Rolodex
   def find(input, search)
   	@contacts.each do |contact|
   		if input == 1
-  			if contact.id == search
-  				d = contact.id
+  			if contact.id == search.to_i
+  				id = contact.id
   				display_target(id)
   			end
   		elsif input == 2
@@ -129,12 +129,17 @@ class Rolodex
 
   # restore deleted contact
   def restore_deleted(id)
-  	@deleted.each do |contact|
-  		if contact.id == id
-  			@contacts << contact
-        @deleted.delete_if {|del_contact| del_contact.id == id }
-  		end
-  	end
+    if @deleted != []
+    	@deleted.each do |contact|
+    		if contact.id == id
+    			@contacts << contact
+          @deleted.delete_if {|del_contact| del_contact.id == id }
+          puts "User #{id} is restored"
+    		end
+    	end
+    else
+      puts "There is nothing to restore"
+    end
   end
 
   # sort contacts
