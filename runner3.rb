@@ -32,6 +32,7 @@ class Runner
 		add_new_contact if user_selected == 1
 		delete_contact if user_selected == 3
 		display_all_contacts if user_selected == 4
+		display_attribute if user_selected == 5
 	end
 
 	def call_option(user_selected)
@@ -39,6 +40,9 @@ class Runner
 	end
 
 	def add_new_contact
+		puts "\e[H\e[2J"
+		puts "ADDING NEW CONTACT"
+		puts "--------------------"
 		print "Enter first name: "
 		first_name = gets.chomp
 		print "Enter last name: "
@@ -69,6 +73,20 @@ class Runner
   	puts "\n"
   	puts "\n"
   	puts "------------------------"
+  end
+
+  def display_attribute
+    puts "\e[H\e[2J"
+    puts "Which attribute do you want to display"
+    puts "(1) ID"
+		puts "(2) First Name"
+		puts "(3) Last Name"
+		puts "(4) Email"
+		puts "(5) Note"
+		puts "(0) Exit"
+		input = gets.chomp.to_i
+		puts "\e[H\e[2J"
+    @rolodex.display_attribute(input)
   end
 end
 

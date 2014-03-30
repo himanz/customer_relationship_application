@@ -16,9 +16,6 @@ class Contact
   	"ID: #{@id}\nFirst Name: #{@first_name}\nLast Name: #{@last_name}\nAddress: #{@address}\nNotes: #{@note}"
   end
 
-  def display_id_name
-  end
-
   #def contacts
   #	@contacts
   #end
