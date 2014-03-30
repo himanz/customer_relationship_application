@@ -58,6 +58,8 @@ class Rolodex
   			puts contact.email
   		elsif input == 5
   			puts contact.note
+  		elsif input == 9
+  			break
   		end
   	end
   end
@@ -74,6 +76,8 @@ class Rolodex
   				contact.email = new_info
   			elsif input == 4
   				contact.note = new_info
+  			elsif input == 9
+  				break
   			end
   		end
   	end

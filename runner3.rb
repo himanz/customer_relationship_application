@@ -76,16 +76,20 @@ class Runner
 		puts "(2) Last Name"
 		puts "(3) Email"
 		puts "(4) Note"
+		puts "(9) Go back to Main Menu"
 		puts "(0) Exit"		
 		input = gets.chomp.to_i
-		puts "Enter the new information"
-		new_info = gets.chomp
-		puts "\e[H\e[2J"
-  	@rolodex.modify_contact(id, input, new_info)
-  	puts "New contact info"
+		if input != 9
+			puts "Enter the new information"
+			new_info = gets.chomp
+			puts "\e[H\e[2J"
+	  	@rolodex.modify_contact(id, input, new_info)
+	  	puts "New contact info"
+	  	puts "-----------------"
+	  	@rolodex.display_target(id)
+    end
   	puts "-----------------"
-  	@rolodex.display_target(id)
-  	puts "-----------------"
+
   end
 
   # delete an contact
@@ -111,6 +115,7 @@ class Runner
 		puts "(3) Last Name"
 		puts "(4) Email"
 		puts "(5) Note"
+		puts "(9) Go back to Main Menu"
 		puts "(0) Exit"
 		input = gets.chomp.to_i
 		puts "\e[H\e[2J"
