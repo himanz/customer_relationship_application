@@ -1,16 +1,20 @@
 class Rolodex
-	  @@id = 0
+	  
+
 	def initialize
 		@contacts = []
 	end
+	def create_contact(first_name, last_name, email, note)
+		contact = Contact.new
+		contact.first_name = first_name
+		contact.last_name = last_name
+		contact.email = email
+		contact.note = note
+		@contacts << contact
+	end
 
-  def contacts
-  	@contacts
+  def display_all_contacts
+  	@contacts.each {|contact| puts contact.to_s}
   end
 
-	def add_contacts(contact)
-		@contact.id = @@id
-		@contacts << contact
-    @@id += 1
-	end
 end
