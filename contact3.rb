@@ -12,6 +12,7 @@ class Contact
 		@@counter
   end
 
+  # overwrite to_s to display
   def to_s
   	"ID: #{@id}\nFirst Name: #{@first_name}\nLast Name: #{@last_name}\nEmail: #{@email}\nNotes: #{@note}"
   end

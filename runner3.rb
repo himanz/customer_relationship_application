@@ -17,6 +17,7 @@ class Runner
 		puts "Enter a number please"
 	end
 
+  # Runs the program
 	def run
 		@done = false
 		while !@done
@@ -26,6 +27,7 @@ class Runner
 		end
 	end
 
+  # determine which option user wants
 	def user_option(user_selected)
 		@done = true if user_selected == 0
 		add_new_contact if user_selected == 1
@@ -35,14 +37,17 @@ class Runner
 		display_attribute if user_selected == 5
 	end
   
+  # display all contacts
   def display_all_contacts
   	@rolodex.display_all_contacts
   end
 
+  # display id and name
   def display_id_name
   	@rolodex.display_id_name
   end
 
+  # add a contact
 	def add_new_contact
 		puts "\e[H\e[2J"
 		puts "ADDING NEW CONTACT"
@@ -59,6 +64,7 @@ class Runner
 		@rolodex.create_contact(first_name, last_name, email, note)
 	end
 
+  # modify an existing contact
   def modify_contact
   	puts "\e[H\e[2J"
   	puts "Enter ID of person you want to modify"
@@ -82,6 +88,7 @@ class Runner
   	puts "-----------------"
   end
 
+  # delete an contact
   def delete_contact
   	puts "\e[H\e[2J"
   	display_id_name
@@ -95,6 +102,7 @@ class Runner
   	puts "------------------------"
   end
 
+  # display a saved attribute of a contact
   def display_attribute
     puts "\e[H\e[2J"
     puts "Which attribute do you want to display"

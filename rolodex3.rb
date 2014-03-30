@@ -1,9 +1,11 @@
 class Rolodex
 	  
 	def initialize
+		# store contacts
 		@contacts = []
 	end
 
+  # create a contact
 	def create_contact(first_name, last_name, email, note)
 		contact = Contact.new
 		contact.first_name = first_name
@@ -16,6 +18,7 @@ class Rolodex
 		puts "---------------"
 	end
 
+  # display all contacts
   def display_all_contacts
   	@contacts.each do |contact| 
   		puts contact.to_s
@@ -23,6 +26,7 @@ class Rolodex
   	end
   end
 
+  # display a target contact
   def display_target(id)
   	@contacts.each do |contact|
   		if contact.id == id
@@ -31,14 +35,17 @@ class Rolodex
   	end
   end
 
+  # display id and name of a contact
   def display_id_name
   	@contacts.each {|contact| puts "ID: #{contact.id} First Name: #{contact.first_name} Last Name: #{contact.last_name}"}
   end
 
+  # delete a contact
   def delete_contact(user_input)
     @contacts.delete_if {|contact| contact.id == user_input}
   end
 
+  # display a specific information about a contact
   def display_attribute(input)
   	@contacts.each do |contact|
   		if input == 1
@@ -55,6 +62,7 @@ class Rolodex
   	end
   end
 
+  # edit an attribute of a contact
   def modify_contact(id, input, new_info)
   	@contacts.each do |contact|
   		if contact.id == id
