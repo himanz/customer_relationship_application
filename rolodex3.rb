@@ -4,6 +4,10 @@ class Rolodex
 		@contacts = []
 	end
 
+  def contacts
+  	@contacts
+  end
+
 	def add_contacts(contact)
 		@contact.id = @@id
 		@contacts << contact
