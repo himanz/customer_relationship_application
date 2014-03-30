@@ -25,7 +25,7 @@ class Runner
 		@done = false
 		while !@done
 			main_menu
-			user_selected = gets.chomp.to_i
+			user_selected = gets.chomp
 			puts "\e[H\e[2J"
 			user_option(user_selected)
 		end
@@ -34,23 +34,23 @@ class Runner
   # determine which option user wants
 	def user_option(user_selected)
 		case user_selected
-		when 0
+		when "0"
 			@done = true
-		when 1
+		when "1"
 			add_new_contact
-		when 2
+		when "2"
 			modify_contact
-		when 3
+		when "3"
 			delete_contact
-		when 4
+		when "4"
 			display_all_contacts
-		when 5
+		when "5"
 			display_attribute
-		when 6
+		when "6"
 			find
-		when 7
+		when "7"
 			restore_deleted
-		when 8
+		when "8"
 			sort_contacts
 		else
 			puts "Please enter a correct input"
