@@ -30,7 +30,8 @@ class Rolodex
   def display_target(id)
   	@contacts.each do |contact|
   		if contact.id == id
-  			puts "First Name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.note}"
+  			puts "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.note}"
+  			puts "-----------------------"
   		end
   	end
   end
@@ -78,6 +79,41 @@ class Rolodex
   				contact.note = new_info
   			elsif input == 9
   				break
+  			end
+  		end
+  	end
+  end
+
+  # Find by word
+  def find(input, search)
+  	@contacts.each do |contact|
+  		if input == 1
+  			if contact.id == search
+  				d = contact.id
+  				display_target(id)
+  			end
+  		elsif input == 2
+  			if contact.first_name == search
+  				id = contact.id
+  				display_target(id)
+  			end
+  		elsif input == 3
+  			if contact.last_name == search
+  				id = contact.id
+  				display_target(id)
+  			end
+  		elsif input == 4
+  			if contact.email == search
+  				id = contact.id
+  				display_target(id)
+  			end
+  		elsif input == 5
+  			split = contact.note.split(" ")
+  			split.each do |word|
+  				if word == search
+  				  id = contact.id
+  				  display_target(id)
+  				end
   			end
   		end
   	end

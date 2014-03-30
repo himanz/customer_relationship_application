@@ -13,6 +13,7 @@ class Runner
 		puts "(3) Delete a contact"
 		puts "(4) Display all the contacts"
 		puts "(5) Display an attribute"
+		puts "(6) Find"
 		puts "(0) Exit"
 		puts "Enter a number please"
 	end
@@ -35,6 +36,7 @@ class Runner
 		delete_contact if user_selected == 3
 		display_all_contacts if user_selected == 4
 		display_attribute if user_selected == 5
+		find if user_selected == 6
 	end
   
   # display all contacts
@@ -77,7 +79,6 @@ class Runner
 		puts "(3) Email"
 		puts "(4) Note"
 		puts "(9) Go back to Main Menu"
-		puts "(0) Exit"		
 		input = gets.chomp.to_i
 		if input != 9
 			puts "Enter the new information"
@@ -116,11 +117,42 @@ class Runner
 		puts "(4) Email"
 		puts "(5) Note"
 		puts "(9) Go back to Main Menu"
-		puts "(0) Exit"
 		input = gets.chomp.to_i
 		puts "\e[H\e[2J"
     @rolodex.display_attribute(input)
     puts "------------------"
+  end
+
+  # Find by word
+  def find
+  	puts "\e[H\e[2J"
+  	puts "(1) ID"
+		puts "(2) First Name"
+		puts "(3) Last Name"
+		puts "(4) Email"
+		puts "(5) Note"
+		puts "(9) Go back to main menu"
+		input = gets.chomp.to_i
+		puts puts "\e[H\e[2J"
+    if input == 1
+    	puts "Enter an ID to find"
+    	search = gets.chomp.to_i
+    elsif input == 2
+    	puts "Enter a First Name to find"
+    	search = gets.chomp
+    elsif input == 3
+    	puts "Enter a Last Name to find"
+    	search = gets.chomp
+    elsif input == 4
+    	puts "Enter an Email to find"
+    	search = gets.chomp
+    elsif input == 5
+    	puts "Enter a single word in note to find"
+    	search = gets.chomp
+    elsif input == 9
+    	return
+    end
+		@rolodex.find(input, search)
   end
 end
 
