@@ -30,18 +30,13 @@ class Runner
 	def user_option(user_selected)
 		@done = true if user_selected == 0
 		add_new_contact if user_selected == 1
+		delete_contact if user_selected == 3
 		display_all_contacts if user_selected == 4
-
-    
 	end
 
 	def call_option(user_selected)
 		#user_option(user_selected)
 	end
-
-  def display_all_contacts
-  	@rolodex.display_all_contacts
-  end
 
 	def add_new_contact
 		print "Enter first name: "
@@ -54,6 +49,16 @@ class Runner
 		note = gets.chomp
 		@rolodex.create_contact(first_name, last_name, email, note)
 	end
+
+	def display_all_contacts
+  	@rolodex.display_all_contacts
+  end
+
+  def delete_contact
+  	puts "Enter a user's ID to delete"
+  	id = gets.chomp.to_i
+  	@rolodex.delete_contact(id)
+  end
 end
 
 puts "What is your name?"

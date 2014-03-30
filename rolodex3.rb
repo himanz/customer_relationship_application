@@ -1,6 +1,5 @@
 class Rolodex
 	  
-
 	def initialize
 		@contacts = []
 	end
@@ -15,6 +14,10 @@ class Rolodex
 
   def display_all_contacts
   	@contacts.each {|contact| puts contact.to_s}
+  end
+
+  def delete_contact(user_input)
+    @contacts.delete_if {|contact| contact.id == user_input}
   end
 
 end
